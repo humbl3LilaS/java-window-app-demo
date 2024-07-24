@@ -15,7 +15,7 @@ public class TodoDao implements CrudOperation<Todo>
 	private Connection connection = JdbcConnection.getConnection();
 
 	@Override
-	public List<Todo> get()
+	public List<Todo> getAll()
 	{
 		ArrayList<Todo> todos = new ArrayList<>();
 		try (Statement statement = connection.createStatement())
@@ -41,7 +41,7 @@ public class TodoDao implements CrudOperation<Todo>
 	public static void main(String[] args)
 	{
 		var todoDao = new TodoDao();
-		List<Todo> todos = todoDao.get();
+		List<Todo> todos = todoDao.getAll();
 		System.out.println(todos);
 	}
 }
